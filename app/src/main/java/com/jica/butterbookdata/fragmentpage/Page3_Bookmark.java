@@ -1,10 +1,14 @@
 package com.jica.butterbookdata.fragmentpage;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -26,7 +30,7 @@ import butterknife.Unbinder;
 
 public class Page3_Bookmark extends Fragment {
     private List<Nomen> nomenList = new ArrayList<>();
-    private NomenAdapter nomenAdapter = new NomenAdapter(getActivity(), nomenList);
+    private NomenAdapter nomenAdapter;
     private Unbinder unbinder;
 
     @BindView(R.id.rv)
@@ -38,22 +42,22 @@ public class Page3_Bookmark extends Fragment {
 
     @OnClick(R.id.tvHideWord)
     public void onHideWord(View view){
-        if(tvHiedWord.getText()=="단어 숨기기"){
-            nomenAdapter.showhideWord(1);
-            tvHiedWord.setText("단어 보이기");
-        } else {
+        if(tvHiedWord.getText()=="단어 보이기"){
             nomenAdapter.showhideWord(0);
             tvHiedWord.setText("단어 숨기기");
+        } else {
+            nomenAdapter.showhideWord(1);
+            tvHiedWord.setText("단어 보이기");
         }
     }
     @OnClick(R.id.tvHideMean)
     public void onHideMean(View view){
-        if(tvHideMean.getText()=="뜻 숨기기"){
-            nomenAdapter.showhideMean(1);
-            tvHideMean.setText("뜻 보이기");
-        } else {
+        if(tvHideMean.getText()=="뜻 보이기"){
             nomenAdapter.showhideMean(0);
             tvHideMean.setText("뜻 숨기기");
+        } else {
+            nomenAdapter.showhideMean(1);
+            tvHideMean.setText("뜻 보이기");
         }
     }
 
@@ -62,7 +66,7 @@ public class Page3_Bookmark extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page_3_bookmark,container,false);
         ButterKnife.bind(this,view);
-
+        nomenAdapter = new NomenAdapter(getActivity(),nomenList);
         setNomenDataAdapter();
 
         return view;

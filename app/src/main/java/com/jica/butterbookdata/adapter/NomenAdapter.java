@@ -1,6 +1,8 @@
 package com.jica.butterbookdata.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jica.butterbookdata.R;
+import com.jica.butterbookdata.WordClickViewActivity;
 import com.jica.butterbookdata.database.entity.Nomen;
 
 import java.util.List;
@@ -19,15 +22,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.jica.butterbookdata.R.drawable.ic_bookmark_border_black_24dp;
-
 public class NomenAdapter extends RecyclerView.Adapter<NomenAdapter.RecyclerViewHolder> {
     List<Nomen> items;
     Context mContext;
     int showhideWord = 0; //0:show 1:hide
     int showhideMean = 0; //0:show 1:hide
-
-
 
     public NomenAdapter(Context context, List<Nomen> itemList) {
         this.mContext = context;
@@ -54,16 +53,16 @@ public class NomenAdapter extends RecyclerView.Adapter<NomenAdapter.RecyclerView
             recyclerViewHolder.ibBookmark.setImageResource(R.drawable.ic_bookmark_border_black_24dp);
         }
         //단어 보이기 또는 숨기기
-        if(showhideWord==1){
-            recyclerViewHolder.tvWord.setVisibility(View.INVISIBLE);
-        }else {
+        if(showhideWord==0){
             recyclerViewHolder.tvWord.setVisibility(View.VISIBLE);
+        }else {
+            recyclerViewHolder.tvWord.setVisibility(View.INVISIBLE);
         }
         //뜻 보이기 또는 숨기기
-        if(showhideMean==1){
-            recyclerViewHolder.tvMean.setVisibility(View.INVISIBLE);
-        }else {
+        if(showhideMean==0){
             recyclerViewHolder.tvMean.setVisibility(View.VISIBLE);
+        }else {
+            recyclerViewHolder.tvMean.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -98,26 +97,45 @@ public class NomenAdapter extends RecyclerView.Adapter<NomenAdapter.RecyclerView
             switch (isBookmarked){
                 case 0: //yes
                     items.get(itemPosition).setBookmark(1);
-                    Toast.makeText(mContext, "북마크해제", Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
                     break;
                 case 1: //no
                     items.get(itemPosition).setBookmark(0);
-                    Toast.makeText(mContext, "북마크설정", Toast.LENGTH_SHORT).show();
                     notifyDataSetChanged();
                     break;
             }
         }
         @OnClick(R.id.tableLayout)
-        public void onShowWordView(View view){
+        public void onWordDetailView(View view){
             int itemPosition = getAdapterPosition();
-
+            Nomen item = items.get(itemPosition);
+            Intent intent = new Intent(mContext, WordClickViewActivity.class);
+            String[] itemValue = new String[11];
+            itemValue[0] = item.getNid()+"";
+            itemValue[1] = item.getArtikel();
+            itemValue[2] = item.getNomen();
+            itemValue[3] = item.getPlural();
+            itemValue[4] = item.getMean_ko();
+            itemValue[5] = item.getMean_en();
+            itemValue[6] = item.getExample();
+            itemValue[7] = item.getExample_mean();
+            itemValue[8] = item.getBookmark()+"";
+            itemValue[9] = item.getStudy()+"";
+            itemValue[10] = item.getDate();
+            intent.putExtra("ItemValue",itemValue);
+            mContext.startActivity(intent);
+            Activity mActivity = (Activity)mContext;
+            mActivity.overridePendingTransition(R.anim.anim_slide_in_left,R.anim.anim_not_move_activity);
         }
     }
     public int remove(int position) {
         int item_id = items.get(position).getNid();
         items.remove(position);
         return item_id;
+    }
+    public Nomen getNomen(int position){
+        Nomen item = items.get(position);
+        return item;
     }
 
     public void showhideWord(int isshow) {

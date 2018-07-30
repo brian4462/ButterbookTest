@@ -4,14 +4,20 @@ import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.jica.butterbookdata.adapter.FragmentPageAdapter;
+import com.jica.butterbookdata.database.entity.Nomen;
 import com.jica.butterbookdata.fragmentpage.Page1_Home;
 import com.jica.butterbookdata.fragmentpage.Page2_Word;
 import com.jica.butterbookdata.fragmentpage.Page3_Bookmark;
 import com.jica.butterbookdata.fragmentpage.Page4_Settings;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,8 +36,32 @@ public class ViewActivity extends AppCompatActivity {
         super.setContentView(R.layout.activity_view);
         ButterKnife.bind(this);
 
-
         initUI();
+        setDB();
+    }
+
+    private void setDB() {
+        List<Nomen> nomenList = new ArrayList<>();
+        try {
+            InputStreamReader is = new InputStreamReader(getAssets().open("Nomen.tsv"));
+            BufferedReader reader = new BufferedReader(is);
+            reader.readLine();
+            String line;
+            String[] st;
+
+            while ((line = reader.readLine()) != null) {
+                st = line.split("\t");
+                Nomen nomen = new Nomen();
+                nomen.setArtikel(st[0]);
+                nomen.setNomen(st[1]);
+                nomen.setPlural(st[2]);
+                nomen.setMean_ko(st[3]);
+                nomen.setMean_en(st[4]);
+                nomen.setExample(st[5]);
+                nomen.setExample_mean(st[6]);
+                nomenList.add(nomen);
+            }
+        } catch (IOException e) { }
     }
 
     private void initUI() {
