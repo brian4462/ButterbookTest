@@ -3,6 +3,7 @@ package com.jica.butterbookdata.database.dao;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 import com.jica.butterbookdata.database.entity.Nomen;
@@ -19,7 +20,7 @@ public interface NomenDAO {
     List<Nomen> getAll();
 
     //insert
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Nomen... data);
 
     //update

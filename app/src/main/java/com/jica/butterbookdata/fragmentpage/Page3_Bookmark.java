@@ -1,25 +1,26 @@
 package com.jica.butterbookdata.fragmentpage;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.jica.butterbookdata.R;
-import com.jica.butterbookdata.adapter.NomenAdapter;
-import com.jica.butterbookdata.database.entity.Nomen;
+import com.jica.butterbookdata.adapter.FragmentPageAdapter;
+import com.jica.butterbookdata.adapter.WordAdapter;
+import com.jica.butterbookdata.database.AppDB;
+import com.jica.butterbookdata.database.dao.AdjektivDAO;
+import com.jica.butterbookdata.database.dao.NomenDAO;
+import com.jica.butterbookdata.database.dao.VerbenDAO;
+import com.jica.butterbookdata.database.dao.WordDAO;
+import com.jica.butterbookdata.database.entity.Word;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +30,12 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class Page3_Bookmark extends Fragment {
-    private List<Nomen> nomenList = new ArrayList<>();
-    private NomenAdapter nomenAdapter;
+    private List<Word> wordList = new ArrayList<>();
+    private WordAdapter wordAdapter;
+    private NomenDAO nomenDAO;
+    private VerbenDAO verbenDAO;
+    private AdjektivDAO adjektivDAO;
+    private WordDAO wordDAO;
     private Unbinder unbinder;
 
     @BindView(R.id.rv)
@@ -43,20 +48,20 @@ public class Page3_Bookmark extends Fragment {
     @OnClick(R.id.tvHideWord)
     public void onHideWord(View view){
         if(tvHiedWord.getText()=="단어 보이기"){
-            nomenAdapter.showhideWord(0);
+            wordAdapter.showhideWord(0);
             tvHiedWord.setText("단어 숨기기");
         } else {
-            nomenAdapter.showhideWord(1);
+            wordAdapter.showhideWord(1);
             tvHiedWord.setText("단어 보이기");
         }
     }
     @OnClick(R.id.tvHideMean)
     public void onHideMean(View view){
         if(tvHideMean.getText()=="뜻 보이기"){
-            nomenAdapter.showhideMean(0);
+            wordAdapter.showhideMean(0);
             tvHideMean.setText("뜻 숨기기");
         } else {
-            nomenAdapter.showhideMean(1);
+            wordAdapter.showhideMean(1);
             tvHideMean.setText("뜻 보이기");
         }
     }
@@ -66,8 +71,9 @@ public class Page3_Bookmark extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page_3_bookmark,container,false);
         ButterKnife.bind(this,view);
-        nomenAdapter = new NomenAdapter(getActivity(),nomenList);
-        setNomenDataAdapter();
+
+        getDB();
+        setRecyclerView();
 
         return view;
     }
@@ -78,32 +84,19 @@ public class Page3_Bookmark extends Fragment {
         if(unbinder!=null)
             unbinder.unbind();
     }
-    private void setNomenDataAdapter() {
-        try {
-            InputStreamReader is = new InputStreamReader(getActivity().getAssets().open("Nomen.tsv"));
 
-            BufferedReader reader = new BufferedReader(is);
-            reader.readLine();
-            String line;
-            String[] st;
-            while ((line = reader.readLine()) != null) {
-                st = line.split("\t");
-                Nomen nomen = new Nomen();
-                nomen.setArtikel(st[0]);
-                nomen.setNomen(st[1]);
-                nomen.setPlural(st[2]);
-                nomen.setMean_ko(st[3]);
-                nomen.setMean_en(st[4]);
-                nomen.setExample(st[5]);
-                nomen.setExample_mean(st[6]);
-                nomenList.add(nomen);
-            }
-        } catch (IOException e) {
-
-        }
+    private void getDB(){
+        nomenDAO = AppDB.getInstance(getActivity()).nomenDAO();
+        verbenDAO = AppDB.getInstance(getActivity()).verbenDAO();
+        adjektivDAO = AppDB.getInstance(getActivity()).adjektivDAO();
+        wordDAO = AppDB.getInstance(getActivity()).wordDAO();
+    }
+    private void setRecyclerView() {
+        List<Word> wordList = wordDAO.getbyBookmark(0);
+        wordAdapter = new WordAdapter(getActivity(),wordList);
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        rv.setAdapter(nomenAdapter);
+        rv.setAdapter(wordAdapter);
     }
 
 }

@@ -15,9 +15,6 @@ public class Nomen {
     private String mean_en;
     private String example;
     private String example_mean;
-    private int bookmark = 1;// 0:yes 1:no
-    private int study = 1;// 0:yes 1:no
-    private String date = null;
 
 
     //getters setters
@@ -83,29 +80,5 @@ public class Nomen {
 
     public void setExample_mean(String example_mean) {
         this.example_mean = example_mean;
-    }
-
-    public int getBookmark() {
-        return bookmark;
-    }
-
-    public void setBookmark(int bookmark) {
-        this.bookmark = bookmark;
-    }
-
-    public int getStudy() {
-        return study;
-    }
-
-    public void setStudy(int study) {
-        this.study = study;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 }

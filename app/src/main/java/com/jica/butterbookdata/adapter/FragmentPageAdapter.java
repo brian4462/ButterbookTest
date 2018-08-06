@@ -1,8 +1,14 @@
 package com.jica.butterbookdata.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,4 +38,8 @@ public class FragmentPageAdapter extends FragmentStatePagerAdapter {
         notifyDataSetChanged();
     }
 
+    @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
 }
