@@ -15,6 +15,8 @@ public interface AdjektivDAO {
     //get by ID
     @Query("SELECT * FROM adjektiv WHERE aid = :aid")
     Adjektiv get(int aid);
+    @Query("SELECT * FROM adjektiv WHERE word_adjektiv = :adjektiv")
+    Adjektiv get(String adjektiv);
 
     //get All
     @Query("SELECT * FROM adjektiv")

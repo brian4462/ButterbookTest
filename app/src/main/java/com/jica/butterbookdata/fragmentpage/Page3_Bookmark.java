@@ -92,7 +92,11 @@ public class Page3_Bookmark extends Fragment {
         wordDAO = AppDB.getInstance(getActivity()).wordDAO();
     }
     private void setRecyclerView() {
+        List<Word> myList = wordDAO.getbyBookmark(2);
         List<Word> wordList = wordDAO.getbyBookmark(0);
+        for(Word value:myList){
+            wordList.add(value);
+        }
         wordAdapter = new WordAdapter(getActivity(),wordList);
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));

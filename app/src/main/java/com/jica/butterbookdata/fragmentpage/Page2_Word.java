@@ -1,6 +1,7 @@
 package com.jica.butterbookdata.fragmentpage;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.widget.Button;
 
 import com.jica.butterbookdata.QuizActivity;
 import com.jica.butterbookdata.R;
+import com.jica.butterbookdata.WordCreateActivity;
 import com.jica.butterbookdata.adapter.TodayWordAdapter;
 import com.jica.butterbookdata.adapter.WordAdapter;
 import com.jica.butterbookdata.database.AppDB;
@@ -22,6 +24,7 @@ import com.jica.butterbookdata.database.dao.AdjektivDAO;
 import com.jica.butterbookdata.database.dao.NomenDAO;
 import com.jica.butterbookdata.database.dao.VerbenDAO;
 import com.jica.butterbookdata.database.dao.WordDAO;
+import com.jica.butterbookdata.database.entity.Verben;
 import com.jica.butterbookdata.database.entity.Word;
 
 import java.text.SimpleDateFormat;
@@ -37,9 +40,10 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class Page2_Word extends Fragment {
-    private int NOMEN_COUNT = 5;
-    private int VERBEN_COUNT = 3;
-    private int ADJEKTIV_COUNT = 2;
+    private SharedPreferences settings;
+    private int NOMEN_COUNT;
+    private int VERBEN_COUNT;
+    private int ADJEKTIV_COUNT;
     private Unbinder unbinder;
     private List<Word> wordList = new ArrayList<>();
     private TodayWordAdapter wordAdapter;
@@ -55,6 +59,12 @@ public class Page2_Word extends Fragment {
     @BindView(R.id.btnAddWord)
     Button btnAddWord;
 
+    @OnClick(R.id.btnAddWord)
+    public void onCreateWord(){
+        Intent intent = new Intent(getActivity(), WordCreateActivity.class);
+        getActivity().startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.anim_slide_in_left,R.anim.anim_not_move_activity);
+    }
     @OnClick(R.id.btnCreateQuiz)
     public void onCreateQuiz(){
         Intent intent = new Intent(getActivity(), QuizActivity.class);
@@ -72,6 +82,11 @@ public class Page2_Word extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page_2_word,container,false);
         ButterKnife.bind(this,view);
+        settings = getActivity().getSharedPreferences("myPref",0);
+        NOMEN_COUNT = settings.getInt("NomenCount",5);
+        VERBEN_COUNT = settings.getInt("VerbenCount",3);
+        ADJEKTIV_COUNT = settings.getInt("AdjektivCount",2);
+
         getDB();
         setRecyclerview();
 
@@ -124,4 +139,11 @@ public class Page2_Word extends Fragment {
             unbinder.unbind();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        for(Word word:wordList){
+            Log.d("TAG1",word.toString());
+        }
+    }
 }

@@ -1,33 +1,23 @@
 package com.jica.butterbookdata;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 
 import com.jica.butterbookdata.adapter.FragmentPageAdapter;
-import com.jica.butterbookdata.database.AppDB;
 import com.jica.butterbookdata.database.dao.AdjektivDAO;
 import com.jica.butterbookdata.database.dao.NomenDAO;
 import com.jica.butterbookdata.database.dao.PrapositionDAO;
 import com.jica.butterbookdata.database.dao.VerbenDAO;
-import com.jica.butterbookdata.database.entity.Nomen;
-import com.jica.butterbookdata.database.entity.Verben;
 import com.jica.butterbookdata.fragmentpage.Page1_Home;
 import com.jica.butterbookdata.fragmentpage.Page2_Word;
 import com.jica.butterbookdata.fragmentpage.Page3_Bookmark;
 import com.jica.butterbookdata.fragmentpage.Page4_Settings;
 import com.jica.butterbookdata.thread.ReadFileToDB;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,9 +27,9 @@ public class ViewActivity extends AppCompatActivity {
     private NomenDAO nomenDAO;
     private VerbenDAO verbenDAO;
     private AdjektivDAO adjektivDAO;
-    private PrapositionDAO prapositionDAO;
     private FragmentPageAdapter pageAdapter;
     private ReadFileToDB readFileToDB;
+    private int ispageChange;
 
     @BindView(R.id.vp_horizontal_ntb)
     ViewPager viewPager;
@@ -58,6 +48,7 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_view);
         ButterKnife.bind(this);
+        ispageChange = 1;
         initUI();
 
         //파일을 db에 저장(한번만 실행)
@@ -125,7 +116,7 @@ public class ViewActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onPageSelected(final int position) {
+            public void onPageSelected(int position) {
                 navigationTabBar.getModels().get(position).hideBadge();
             }
 
@@ -149,5 +140,7 @@ public class ViewActivity extends AppCompatActivity {
             }
         }, 500);
     }
-
+    public void moveFragment(int i){
+        viewPager.setCurrentItem(i);
+    }
 }

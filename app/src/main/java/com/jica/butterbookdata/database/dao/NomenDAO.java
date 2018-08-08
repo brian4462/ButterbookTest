@@ -14,6 +14,8 @@ public interface NomenDAO {
     //get Nomen by ID
     @Query("SELECT * FROM nomen WHERE nid = :nid")
     Nomen get(int nid);
+    @Query("SELECT * FROM nomen WHERE nomen = :nomen")
+    Nomen get(String nomen);
 
     //get Nomen All
     @Query("SELECT * FROM nomen")

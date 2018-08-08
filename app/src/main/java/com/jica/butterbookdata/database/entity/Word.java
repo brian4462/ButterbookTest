@@ -97,4 +97,16 @@ public class Word {
     public void setQuizfinish(int quizfinish) {
         this.quizfinish = quizfinish;
     }
+
+    @Override
+    public String toString() {
+        return "[" +
+                "wid=" + wid +
+                ", word='" + word + '\'' +
+                ", mean='" + mean + '\'' +
+                ", bookmark=" + bookmark +
+                ", date='" + date + '\'' +
+                ", quizfinish=" + quizfinish +
+                ']';
+    }
 }

@@ -7,9 +7,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="18dp"
-        android:layout_margin="5dp"
+        android:layout_height="25dp"
+        android:background="@color/colorPrimaryDark"
         android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -21,18 +22,22 @@
             android:id="@+id/tvHideWord"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="0.5"
             android:gravity="center"
             android:text="단어 숨기기"
+            android:textColor="@color/ivory"
             android:textSize="11sp" />
 
         <TextView
             android:id="@+id/tvHideMean"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="0.5"
             android:gravity="center"
             android:text="뜻 숨기기"
+            android:textColor="@color/ivory"
             android:textSize="11sp" />
 
         <LinearLayout

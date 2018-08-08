@@ -15,6 +15,8 @@ public interface VerbenDAO {
     //get by ID
     @Query("SELECT * FROM verben WHERE vid = :vid")
     Verben get(int vid);
+    @Query("SELECT * FROM verben WHERE verb_wir = :verben")
+    Verben get(String verben);
 
     //get All
     @Query("SELECT * FROM verben")

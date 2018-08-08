@@ -17,7 +17,7 @@ public class BackPressCloseHandler {
         }
     }
     public void showGuide() {
-        toast = Toast.makeText(activity, "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT);
+        toast = Toast.makeText(activity, "2초 이내로 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT);
         toast.show();
     }
 }

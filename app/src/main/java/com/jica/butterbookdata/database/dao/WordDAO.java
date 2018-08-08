@@ -27,11 +27,17 @@ public interface WordDAO {
     @Query("SELECT * FROM word")
     List<Word> getAll();
 
+    //get by quizfinish state
+    @Query("SELECT * FROM word WHERE quizfinish = :state")
+    List<Word> getByQuizState(int state);
+
     //get by category
     @Query("SELECT * FROM word WHERE category = :category ORDER BY random() LIMIT :count")
     List<Word> getAllbyCategory(int category, int count);
     @Query("SELECT * FROM word WHERE category = :category AND quizfinish = :finish ORDER BY random() LIMIT :count")
     List<Word> getAllbyCategory(int category, int finish, int count);
+    @Query("SELECT * FROM word WHERE category = :category AND quizfinish = :finish")
+    List<Word> getAllbyCategory_Finish(int category, int finish);
 
     //get by date
     @Query("SELECT * FROM word WHERE date = :date")

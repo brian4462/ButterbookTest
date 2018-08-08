@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -12,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -58,6 +60,7 @@ public class QuizActivity extends AppCompatActivity {
     private int cntadjektiv;
     private int quizNum;
     private int cnt;
+    private int finish;
 
     @BindView(R.id.tvPage)
     TextView tvPage;
@@ -141,7 +144,25 @@ public class QuizActivity extends AppCompatActivity {
     RadioButton rbAdjektiv_Mean2;
     @BindView(R.id.rbAdjektiv_Mean3)
     RadioButton rbAdjektiv_Mean3;
+    //layout, result
+    @BindView(R.id.quizLayout)
+    LinearLayout quizLayout;
+    @BindView(R.id.infoLayout)
+    LinearLayout infoLayout;
+    @BindView(R.id.resultLayout)
+    LinearLayout resultLayout;
+    @BindView(R.id.correctLayout)
+    LinearLayout correctLayout;
+    @BindView(R.id.incorrectLayout)
+    LinearLayout incorrectLayout;
+    @BindView(R.id.tvResult)
+    TextView tvResult;
 
+    @OnClick(R.id.btnFinish)
+    public void onFinishQuiz(View view){
+        finish = 0;
+        finish();
+    }
     @OnClick(R.id.btnQuizClose)
     public void onCloseQuiz(View view){
         onBackPressed();
@@ -149,7 +170,7 @@ public class QuizActivity extends AppCompatActivity {
     //다음 버튼 클릭
     @OnClick(R.id.btnNext)
     public void onNextQuiz(View view){
-        if(cntverben>=verbenList.size()&&cntadjektiv>=adjektivList.size()) {
+        if(correctList.length==cnt) {
             showResult();
         }
         if(cntnomen>=nomenList.size()&&cntverben>=verbenList.size()&&cntadjektiv<adjektivList.size()){
@@ -188,6 +209,8 @@ public class QuizActivity extends AppCompatActivity {
             if(!correct_Artikel.getText().equals(answer_Artikel)){
                 correct_Artikel.setTextColor(Color.parseColor("#A20000"));
                 correctList[cntnomen] = 1;
+            }else {
+                correct_Artikel.setTextColor(Color.parseColor("#ffa940"));
             }
             //Mean
             int rbid2 = rgMean.getCheckedRadioButtonId();
@@ -201,6 +224,8 @@ public class QuizActivity extends AppCompatActivity {
             if(!correct_Mean.getText().equals(answer_Mean)){
                 correct_Mean.setTextColor(Color.parseColor("#A20000"));
                 correctList[cntnomen] = 1;
+            }else {
+                correct_Mean.setTextColor(Color.parseColor("#ffa940"));
             }
 
             //Plural
@@ -209,6 +234,8 @@ public class QuizActivity extends AppCompatActivity {
             if(!correct_Plural.getText().equals(answer_Plural)){
                 correct_Plural.setTextColor(Color.parseColor("#A20000"));
                 correctList[cntnomen] = 1;
+            }else {
+                correct_Plural.setTextColor(Color.parseColor("#ffa940"));
             }
             //etc
             tvNotice.setVisibility(View.VISIBLE);
@@ -238,6 +265,8 @@ public class QuizActivity extends AppCompatActivity {
             if(!tvQuiz_first_verben_correct.getText().equals(answer_Mean)){
                 tvQuiz_first_verben_correct.setTextColor(Color.parseColor("#A20000"));
                 correctList[cntnomen+cntverben] = 1;
+            }else {
+                tvQuiz_first_verben_correct.setTextColor(Color.parseColor("#ffa940"));
             }
             //Partzip
             tvQuiz_second_verben_correct.setVisibility(View.VISIBLE);
@@ -256,6 +285,8 @@ public class QuizActivity extends AppCompatActivity {
             if(!tvQuiz_second_verben_correct.getText().equals(partizip)){
                 tvQuiz_second_verben_correct.setTextColor(Color.parseColor("#A20000"));
                 correctList[cntnomen+cntverben] = 1;
+            }else {
+                tvQuiz_second_verben_correct.setTextColor(Color.parseColor("#ffa940"));
             }
             //Prateritum
             tvQuiz_third_verben_correct.setVisibility(View.VISIBLE);
@@ -264,6 +295,8 @@ public class QuizActivity extends AppCompatActivity {
             if(!tvQuiz_third_verben_correct.getText().equals(answer_Prateritum)){
                 tvQuiz_third_verben_correct.setTextColor(Color.parseColor("#A20000"));
                 correctList[cntnomen+cntverben] = 1;
+            }else {
+                tvQuiz_third_verben_correct.setTextColor(Color.parseColor("#ffa940"));
             }
             //etc
             tvNotice.setVisibility(View.VISIBLE);
@@ -293,6 +326,8 @@ public class QuizActivity extends AppCompatActivity {
             if(!tvQuiz_first_adjektiv_correct.getText().equals(answer_Mean)){
                 tvQuiz_first_adjektiv_correct.setTextColor(Color.parseColor("#A20000"));
                 correctList[cntnomen+cntverben+cntadjektiv] = 1;
+            }else {
+                tvQuiz_first_adjektiv_correct.setTextColor(Color.parseColor("#ffa940"));
             }
             //etc
             tvNotice.setVisibility(View.VISIBLE);
@@ -320,12 +355,17 @@ public class QuizActivity extends AppCompatActivity {
 
         backPressCloseHandler = new BackPressCloseHandler(this);
 
+        quizLayout.setVisibility(View.VISIBLE);
+        infoLayout.setVisibility(View.VISIBLE);
+        resultLayout.setVisibility(View.GONE);
+
         getWordList();
         cntnomen = 0;
         cntverben = 0;
         cntadjektiv = 0;
         quizNum = 0;
         cnt = 1;
+        finish = 1;
         makeQuiz();
     }
 
@@ -361,6 +401,45 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
     private void showResult(){
+        quizLayout.setVisibility(View.GONE);
+        infoLayout.setVisibility(View.GONE);
+        resultLayout.setVisibility(View.VISIBLE);
+        int correct = 0;
+        for(int i=0;i<correctList.length;i++){
+            if(correctList[i]==0){
+                correct++;
+            }
+        }
+        tvResult.setText(correct+" / "+correctList.length);
+        List<Word> correctWords = wordDAO.getByQuizState(2);
+        List<Word> incorrectWords = wordDAO.getByQuizState(3);
+        TextView[] correctTvs = new TextView[correctWords.size()];
+        TextView[] incorrectTvs = new TextView[incorrectWords.size()];
+        wordList.clear();
+        for(int i = 0;i<correctWords.size();i++){
+            correctTvs[i] = new TextView(getApplicationContext());
+            correctTvs[i].setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            correctTvs[i].setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
+            correctTvs[i].setTextColor(getResources().getColor(R.color.correct));
+            correctTvs[i].setText(correctWords.get(i).getWord());
+            correctLayout.addView(correctTvs[i]);
+            wordList.add(correctWords.get(i));
+        }
+        for(int i = 0;i<incorrectWords.size();i++){
+            incorrectTvs[i] = new TextView(getApplicationContext());
+            incorrectTvs[i].setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            incorrectTvs[i].setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
+            incorrectTvs[i].setTextColor(getResources().getColor(R.color.wrong));
+            incorrectTvs[i].setText(incorrectWords.get(i).getWord());
+            incorrectLayout.addView(incorrectTvs[i]);
+            if(incorrectWords.get(i).getBookmark()==1){
+                incorrectWords.get(i).setBookmark(0);
+            }
+            wordList.add(incorrectWords.get(i));
+        }
+
 
     }
 
@@ -511,9 +590,18 @@ public class QuizActivity extends AppCompatActivity {
     public void finish() {
         super.finish();
         if(wordList!=null&&wordList.size()!=0){
-            for(Word value:wordList){
-                value.setStudy(1);
-                wordDAO.update(value);
+            if(finish==0){
+                for(Word value:wordList){
+                    value.setQuizfinish(0);
+                    value.setStudy(1);
+                    wordDAO.update(value);
+                }
+            }else {
+                for(Word value:wordList){
+                    value.setQuizfinish(1);
+                    value.setStudy(1);
+                    wordDAO.update(value);
+                }
             }
         }
         overridePendingTransition(R.anim.anim_not_move_activity,R.anim.anim_slide_out_right);
@@ -524,5 +612,4 @@ public class QuizActivity extends AppCompatActivity {
         //super.onBackPressed();
         backPressCloseHandler.onBackPressed();
     }
-
 }

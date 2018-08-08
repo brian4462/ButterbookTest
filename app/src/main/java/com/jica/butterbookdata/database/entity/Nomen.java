@@ -81,4 +81,18 @@ public class Nomen {
     public void setExample_mean(String example_mean) {
         this.example_mean = example_mean;
     }
+
+    @Override
+    public String toString() {
+        return "Nomen{" +
+                "nid=" + nid +
+                ", artikel='" + artikel + '\'' +
+                ", nomen='" + nomen + '\'' +
+                ", plural='" + plural + '\'' +
+                ", mean_ko='" + mean_ko + '\'' +
+                ", mean_en='" + mean_en + '\'' +
+                ", example='" + example + '\'' +
+                ", example_mean='" + example_mean + '\'' +
+                '}';
+    }
 }

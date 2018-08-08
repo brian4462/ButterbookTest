@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jica.butterbookdata.R;
 import com.jica.butterbookdata.WordClickViewActivity;
@@ -37,8 +37,10 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
     private WordDAO wordDAO;
     private List<Word> items;
     private Context mContext;
+
     int showhideWord = 0; //0:show 1:hide
     int showhideMean = 0; //0:show 1:hide
+    private long backKeyPressedTime = 0;
 
     public WordAdapter(Context context, List<Word> itemList) {
         this.mContext = context;
@@ -68,10 +70,19 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
         recyclerViewHolder.tvWord.setText(items.get(i).getWord());
         recyclerViewHolder.tvMean.setText(items.get(i).getMean());
         //북마크 변화
-        if(items.get(i).getBookmark()==0){
-            recyclerViewHolder.ibBookmark.setImageResource(R.drawable.ic_bookmark_white_24dp);
-        } else {
-            recyclerViewHolder.ibBookmark.setImageResource(R.drawable.ic_bookmark_border_black_24dp);
+        switch(items.get(i).getBookmark()){
+            case 0:{
+                recyclerViewHolder.ibBookmark.setImageResource(R.drawable.ic_bookmark_white_24dp);
+                break;
+            }
+            case 1:{
+                recyclerViewHolder.ibBookmark.setImageResource(R.drawable.ic_bookmark_border_black_24dp);
+                break;
+            }
+            case 2:{
+                recyclerViewHolder.ibBookmark.setImageResource(R.drawable.ic_delete_orange_24dp);
+                break;
+            }
         }
         //단어 보이기 또는 숨기기
         if(showhideWord==0){
@@ -92,7 +103,6 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
     public int getItemCount() {
         return (items==null)?0:items.size();
     }
-
 
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder{
@@ -125,6 +135,19 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
                 case 1: //no
                     items.get(itemPosition).setBookmark(0);
                     wordDAO.update(items.get(itemPosition));
+                    notifyDataSetChanged();
+                    break;
+                case 2:
+                    if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+                        backKeyPressedTime = System.currentTimeMillis();
+                        Toast.makeText(mContext, "한번더 클릭하면 삭제됩니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+                        wordDAO.delete(items.get(itemPosition));
+                        removeAt(itemPosition);
+                        Toast.makeText(mContext, "단어가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                    }
                     notifyDataSetChanged();
                     break;
             }
@@ -213,11 +236,6 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
             mActivity.overridePendingTransition(R.anim.anim_slide_in_left,R.anim.anim_not_move_activity);
         }
     }
-    public int remove(int position) {
-        int item_id = items.get(position).getWid();
-        items.remove(position);
-        return item_id;
-    }
 
     public void showhideWord(int isshow) {
         if(isshow==0){//show면
@@ -234,6 +252,10 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
             showhideMean = 1;
         }
         notifyDataSetChanged();
+    }
+    private void removeAt(int position) {
+        items.remove(position);
+        notifyItemRemoved(position-1);
     }
 }
 
