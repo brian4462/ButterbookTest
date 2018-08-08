@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.jica.butterbookdata.adapter.FragmentPageAdapter;
 import com.jica.butterbookdata.database.dao.AdjektivDAO;
@@ -57,7 +58,10 @@ public class ViewActivity extends AppCompatActivity {
         if(tutorialviewshow != 1){
             readFileToDB = new ReadFileToDB(this);
             readFileToDB.start();
+            moveFragment(3);
+            Toast.makeText(this, "데이터를 내려받기 위해 첫실행에만 설정화면으로 이동합니다.", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     private void initUI() {
@@ -76,7 +80,7 @@ public class ViewActivity extends AppCompatActivity {
                         getResources().getDrawable(R.drawable.ic_home_black_24dp),
                         Color.parseColor(colors[0]))
                         .selectedIcon(getResources().getDrawable(R.drawable.ic_home_click_24dp))
-                        .title("HOME")
+                        .title("Home")
                         //.badgeTitle("")
                         .build()
         );

@@ -1,10 +1,17 @@
 package com.jica.butterbookdata.fragmentpage;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.IntentCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +25,9 @@ import android.widget.Toast;
 import com.jica.butterbookdata.R;
 import com.jica.butterbookdata.ViewActivity;
 import com.jica.butterbookdata.database.AppDB;
+import com.jica.butterbookdata.database.dao.AdjektivDAO;
+import com.jica.butterbookdata.database.dao.NomenDAO;
+import com.jica.butterbookdata.database.dao.VerbenDAO;
 import com.jica.butterbookdata.database.dao.WordDAO;
 import com.jica.butterbookdata.database.entity.Word;
 
@@ -32,6 +42,9 @@ public class Page4_Settings extends Fragment {
     private Unbinder unbinder;
     private SharedPreferences settings;
     private WordDAO wordDAO;
+    private NomenDAO nomenDAO;
+    private VerbenDAO verbenDAO;
+    private AdjektivDAO adjektivDAO;
 
     @BindView(R.id.tvNomencount)
     TextView tvNomencount;
@@ -48,6 +61,9 @@ public class Page4_Settings extends Fragment {
         ButterKnife.bind(this,view);
         settings = getActivity().getSharedPreferences("myPref",0);
         wordDAO = AppDB.getInstance(getActivity()).wordDAO();
+        nomenDAO = AppDB.getInstance(getActivity()).nomenDAO();
+        verbenDAO = AppDB.getInstance(getActivity()).verbenDAO();
+        adjektivDAO = AppDB.getInstance(getActivity()).adjektivDAO();
 
         tvNomencount.setText(settings.getInt("NomenCount",5)+"개");
         tvVerbencount.setText(settings.getInt("VerbenCount",3)+"개");
@@ -62,6 +78,63 @@ public class Page4_Settings extends Fragment {
         if(unbinder!=null)
             unbinder.unbind();
     }
+    @OnClick(R.id.setting_reset_study_layout)
+    public void onClearStudy(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setTitle("정말 초기화 하겠습니까?");
+        builder.setIcon(R.drawable.ic_warning_black_24dp);
+        builder.setMessage("학습한 단어들이 다시 오늘의 단어에 보여집니다.(북마크와 내 단어는 유지됩니다.)");
+        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                List<Word> wordList = wordDAO.getAll();
+                for(Word value:wordList){
+                    value.setQuizfinish(1);
+                    wordDAO.update(value);
+                }
+                Toast.makeText(getActivity(), "학습한 단어들이 초기화되었습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+    @OnClick(R.id.setting_reset_all_layout)
+    public void onClear(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setTitle("정말 초기화 하겠습니까?");
+        builder.setIcon(R.drawable.ic_warning_black_24dp);
+        builder.setMessage("모든 설정이 초기값으로 돌아가고 내가 저장한 단어도 사라집니다.(앱이 재실행 됩니다.)");
+        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                wordDAO.deleteall();
+                nomenDAO.deleteall();
+                verbenDAO.deleteall();
+                adjektivDAO.deleteall();
+
+                SharedPreferences.Editor editor = settings.edit();
+                editor.clear();
+                editor.commit();
+
+                restartApp(getActivity());
+            }
+        });
+        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
     @OnClick(R.id.setting_nomen_layout)
     public void onNomencountPick(View view){
         numberpickDialog(view, 1);
@@ -199,5 +272,13 @@ public class Page4_Settings extends Fragment {
                 break;
             }
         }
+    }
+    public static void restartApp(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        Intent intent = packageManager.getLaunchIntentForPackage(context.getPackageName());
+        ComponentName componentName = intent.getComponent();
+        Intent mainIntent = intent.makeRestartActivityTask(componentName);
+        context.startActivity(mainIntent);
+        System.exit(0);
     }
 }

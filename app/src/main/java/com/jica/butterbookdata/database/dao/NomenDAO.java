@@ -21,6 +21,9 @@ public interface NomenDAO {
     @Query("SELECT * FROM nomen")
     List<Nomen> getAll();
 
+    //delete All
+    @Query("DELETE FROM nomen")
+    void deleteall();
     //insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Nomen... data);

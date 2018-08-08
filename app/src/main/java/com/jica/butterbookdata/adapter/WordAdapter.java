@@ -42,12 +42,14 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
     int showhideMean = 0; //0:show 1:hide
     private long backKeyPressedTime = 0;
 
-    public WordAdapter(Context context, List<Word> itemList) {
+    public WordAdapter(Context context) {
         this.mContext = context;
-        items = itemList;
         wordDAO = AppDB.getInstance(mContext).wordDAO();
     }
-
+    public void setWords(List<Word> words) {
+        this.items = words;
+        notifyDataSetChanged();
+    }
     //뷰생성, 뷰 홀더 호출
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -105,7 +107,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
     }
 
 
-    public class RecyclerViewHolder extends RecyclerView.ViewHolder{
+    class RecyclerViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.tableLayout)
         TableLayout tableLayout;
         @BindView(R.id.tvGrammerForm)

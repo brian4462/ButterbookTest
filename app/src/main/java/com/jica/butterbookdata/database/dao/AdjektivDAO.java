@@ -22,6 +22,10 @@ public interface AdjektivDAO {
     @Query("SELECT * FROM adjektiv")
     List<Adjektiv> getAll();
 
+    //delete All
+    @Query("DELETE FROM adjektiv")
+    void deleteall();
+
     //insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Adjektiv... data);

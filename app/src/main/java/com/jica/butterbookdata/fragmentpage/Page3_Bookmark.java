@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.jica.butterbookdata.R;
 import com.jica.butterbookdata.adapter.FragmentPageAdapter;
+import com.jica.butterbookdata.adapter.SimpleSectionedRecyclerViewAdapter;
 import com.jica.butterbookdata.adapter.WordAdapter;
 import com.jica.butterbookdata.database.AppDB;
 import com.jica.butterbookdata.database.dao.AdjektivDAO;
@@ -92,15 +93,69 @@ public class Page3_Bookmark extends Fragment {
         wordDAO = AppDB.getInstance(getActivity()).wordDAO();
     }
     private void setRecyclerView() {
+        /*
         List<Word> myList = wordDAO.getbyBookmark(2);
         List<Word> wordList = wordDAO.getbyBookmark(0);
         for(Word value:myList){
             wordList.add(value);
         }
-        wordAdapter = new WordAdapter(getActivity(),wordList);
+        */
+        wordAdapter = new WordAdapter(getActivity());
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        rv.setAdapter(wordAdapter);
+        //rv.setAdapter(wordAdapter);
+        updateList();
     }
 
+    private void updateList() {
+        //This is the code to provide a sectioned list
+        List<SimpleSectionedRecyclerViewAdapter.Section> sections = new ArrayList<>();
+        List<Word> words = new ArrayList<>();
+        int totalSize = 0;
+        //그룹이 있는 프로필들
+        List<String> group = new ArrayList<>();
+        group.add(new String("Nomen"));
+        group.add(new String("Verben"));
+        group.add(new String("Adjektiv"));
+        group.add(new String("My Word"));
+        for (int i=0;i<group.size();i++) {
+
+            List<Word> wordfiles = null;
+
+            switch (i){
+                case 0:{//Nomen
+                    wordfiles = wordDAO.getAllbyCategory_Bookmark(1,0);
+                    break;
+                }
+                case 1:{//Verben
+                    wordfiles = wordDAO.getAllbyCategory_Bookmark(2,0);
+                    break;
+                }
+                case 2:{//Adjektiv
+                    wordfiles = wordDAO.getAllbyCategory_Bookmark(3,0);
+                    break;
+                }
+                case 3:{//MyWords
+                    wordfiles = wordDAO.getbyBookmark(2);
+                    break;
+                }
+            }
+
+            if (!wordfiles.isEmpty()) {
+                sections.add(new SimpleSectionedRecyclerViewAdapter.Section(totalSize, group.get(i)));
+                totalSize += wordfiles.size();
+                words.addAll(wordfiles);
+            }
+        }
+        if (!words.isEmpty()) wordAdapter.setWords(words);
+
+        //Add your adapter to the sectionAdapter
+        SimpleSectionedRecyclerViewAdapter.Section[] dummy = new SimpleSectionedRecyclerViewAdapter.Section[sections.size()];
+        SimpleSectionedRecyclerViewAdapter mSectionedAdapter =
+                new SimpleSectionedRecyclerViewAdapter(getActivity(), R.layout.section,R.id.section_text, wordAdapter);
+        mSectionedAdapter.setSections(sections.toArray(dummy));
+
+        //Apply this adapter to the RecyclerView
+        rv.setAdapter(mSectionedAdapter);
+    }
 }

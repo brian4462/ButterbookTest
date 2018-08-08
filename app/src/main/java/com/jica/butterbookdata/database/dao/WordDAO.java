@@ -32,6 +32,8 @@ public interface WordDAO {
     List<Word> getByQuizState(int state);
 
     //get by category
+    @Query("SELECT * FROM word WHERE category = :category AND bookmark = :bookmark")
+    List<Word> getAllbyCategory_Bookmark(int category,int bookmark);
     @Query("SELECT * FROM word WHERE category = :category ORDER BY random() LIMIT :count")
     List<Word> getAllbyCategory(int category, int count);
     @Query("SELECT * FROM word WHERE category = :category AND quizfinish = :finish ORDER BY random() LIMIT :count")
@@ -55,6 +57,7 @@ public interface WordDAO {
     @Query("SELECT * FROM word WHERE study = :study AND date = :date")
     List<Word> getbyStudy(int study,String date);
 
+
     //insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Word... data);
@@ -69,4 +72,8 @@ public interface WordDAO {
     //delete
     @Delete
     void delete(Word... data);
+
+    //delete All
+    @Query("DELETE FROM word")
+    void deleteall();
 }

@@ -22,6 +22,9 @@ public interface VerbenDAO {
     @Query("SELECT * FROM verben")
     List<Verben> getAll();
 
+    //delete All
+    @Query("DELETE FROM verben")
+    void deleteall();
     //insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Verben... data);
