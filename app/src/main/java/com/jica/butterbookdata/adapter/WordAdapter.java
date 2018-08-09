@@ -60,6 +60,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
     // 필수 오버라이드 : 재활용되는 View 가 호출, Adapter 가 해당 position 에 해당하는 데이터를 결합
     @Override
     public void onBindViewHolder(final RecyclerViewHolder recyclerViewHolder, int i) {
+        final int position = i;
         //명사,동사,형용사 구분
         if(items.get(i).getCategory()==1){
             recyclerViewHolder.tvGrammerForm.setText("N");
@@ -98,6 +99,123 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
         }else {
             recyclerViewHolder.tvMean.setVisibility(View.INVISIBLE);
         }
+        recyclerViewHolder.ibBookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int itemPosition = position;
+                int isBookmarked = items.get(itemPosition).getBookmark();
+                switch (isBookmarked){
+                    case 0: //yes
+                        items.get(itemPosition).setBookmark(1);
+                        wordDAO.update(items.get(itemPosition));
+                        notifyDataSetChanged();
+                        break;
+                    case 1: //no
+                        items.get(itemPosition).setBookmark(0);
+                        wordDAO.update(items.get(itemPosition));
+                        notifyDataSetChanged();
+                        break;
+                    case 2:
+                        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+                            backKeyPressedTime = System.currentTimeMillis();
+                            Toast.makeText(mContext, "한번더 클릭하면 삭제됩니다.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+                            wordDAO.delete(items.get(itemPosition));
+                            removeAt(itemPosition);
+                            Toast.makeText(mContext, "단어가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        notifyDataSetChanged();
+                        break;
+                }
+            }
+        });
+        recyclerViewHolder.tableLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int itemPosition = position;
+                Word item = items.get(itemPosition);
+
+                int category = item.getCategory();
+                int categoryId = item.getCategory_id();
+                int clickcnt = item.getClickcnt()+1;
+                item.setClickcnt(clickcnt);
+                wordDAO.update(item);
+                notifyDataSetChanged();
+
+                Intent intent = new Intent(mContext, WordClickViewActivity.class);
+                switch (category){
+                    case 1:{
+                        nomenDAO = AppDB.getInstance(mContext).nomenDAO();
+                        Nomen detailItem = nomenDAO.get(categoryId);
+                        String[] itemValue = new String[14];
+                        itemValue[0] = item.getWid()+"";
+                        itemValue[1] = detailItem.getArtikel();
+                        itemValue[2] = detailItem.getNomen();
+                        itemValue[3] = detailItem.getPlural();
+                        itemValue[4] = detailItem.getMean_ko();
+                        itemValue[5] = detailItem.getMean_en();
+                        itemValue[6] = detailItem.getExample();
+                        itemValue[7] = detailItem.getExample_mean();
+                        itemValue[8] = item.getBookmark()+"";
+                        itemValue[9] = item.getStudy()+"";
+                        itemValue[10] = item.getDate();
+                        itemValue[11] = clickcnt+"";
+                        itemValue[12] = item.getQuizfinish()+"";
+                        itemValue[13] = "1";
+                        intent.putExtra("ItemValue",itemValue);
+                        break;}
+                    case 2:{
+                        verbenDAO = AppDB.getInstance(mContext).verbenDAO();
+                        Verben detailItem = verbenDAO.get(categoryId);
+                        String[] itemValue = new String[20];
+                        itemValue[0] = item.getWid()+"";
+                        itemValue[1] = detailItem.getVerb_wir();
+                        itemValue[2] = detailItem.getVerb_ich();
+                        itemValue[3] = detailItem.getVerb_du();
+                        itemValue[4] = detailItem.getVerb_er_sie_es();
+                        itemValue[5] = detailItem.getVerb_ihr();
+                        itemValue[6] = detailItem.getObjectform();
+                        itemValue[7] = detailItem.getPrateritum_ich();
+                        itemValue[8] = detailItem.getPartizip2_hilfsverb();
+                        itemValue[9] = detailItem.getPartizip2();
+                        itemValue[10] = detailItem.getMean_ko();
+                        itemValue[11] = detailItem.getMean_en();
+                        itemValue[12] = detailItem.getExample();
+                        itemValue[13] = detailItem.getExample_mean();
+                        itemValue[14] = item.getBookmark()+"";
+                        itemValue[15] = item.getStudy()+"";
+                        itemValue[16] = item.getDate();
+                        itemValue[17] = clickcnt+"";
+                        itemValue[18] = item.getQuizfinish()+"";
+                        itemValue[19] = "2";
+                        intent.putExtra("ItemValue",itemValue);
+                        break;}
+                    case 3:{
+                        adjektivDAO = AppDB.getInstance(mContext).adjektivDAO();
+                        Adjektiv detailItem = adjektivDAO.get(categoryId);
+                        String[] itemValue = new String[12];
+                        itemValue[0] = item.getWid()+"";
+                        itemValue[1] = detailItem.getWord_adjektiv();
+                        itemValue[2] = detailItem.getMean_ko();
+                        itemValue[3] = detailItem.getMean_en();
+                        itemValue[4] = detailItem.getExample();
+                        itemValue[5] = detailItem.getExample_mean();
+                        itemValue[6] = item.getBookmark()+"";
+                        itemValue[7] = item.getStudy()+"";
+                        itemValue[8] = item.getDate();
+                        itemValue[9] = clickcnt+"";
+                        itemValue[10] = item.getQuizfinish()+"";
+                        itemValue[11] = "3";
+                        intent.putExtra("ItemValue",itemValue);
+                        break;}
+                }
+                mContext.startActivity(intent);
+                Activity mActivity = (Activity)mContext;
+                mActivity.overridePendingTransition(R.anim.anim_slide_in_left,R.anim.anim_not_move_activity);
+            }
+        });
     }
 
     // 필수 오버라이드 : 데이터 갯수 반환
@@ -124,9 +242,10 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
             ButterKnife.bind(this,itemView);
             this.setIsRecyclable(false);
         }
+        /*
         @OnClick(R.id.ibBookmark)
         public void onBookmarkClick(View view){
-            int itemPosition = getAdapterPosition();
+            int itemPosition = position;
             int isBookmarked = items.get(itemPosition).getBookmark();
             switch (isBookmarked){
                 case 0: //yes
@@ -156,7 +275,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
         }
         @OnClick(R.id.tableLayout)
         public void onWordDetailView(View view){
-            int itemPosition = getAdapterPosition();
+            int itemPosition = position;
             Word item = items.get(itemPosition);
 
             int category = item.getCategory();
@@ -237,6 +356,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.RecyclerViewHo
             Activity mActivity = (Activity)mContext;
             mActivity.overridePendingTransition(R.anim.anim_slide_in_left,R.anim.anim_not_move_activity);
         }
+        */
     }
 
     public void showhideWord(int isshow) {

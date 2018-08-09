@@ -3,7 +3,7 @@
     <item android:drawable="@color/colorPrimaryDark">
     </item>
     <item android:gravity="center">
-        <bitmap android:src="@drawable/butterbook_splash"
+        <bitmap android:src="@drawable/butterbook_splash_simple_orange"
             android:gravity="center"></bitmap>
     </item>
 </layer-list>

@@ -112,7 +112,6 @@ public class Page3_Bookmark extends Fragment {
         List<SimpleSectionedRecyclerViewAdapter.Section> sections = new ArrayList<>();
         List<Word> words = new ArrayList<>();
         int totalSize = 0;
-        //그룹이 있는 프로필들
         List<String> group = new ArrayList<>();
         group.add(new String("Nomen"));
         group.add(new String("Verben"));

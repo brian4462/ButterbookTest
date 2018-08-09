@@ -7,22 +7,23 @@
         android:icon="@mipmap/ic_butterbook_app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:screenOrientation="portrait">
-        <activity android:name=".ViewActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ViewActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".WordClickViewActivity"
-            android:theme="@style/Transparent"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Transparent" />
         <activity
             android:name=".QuizActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".WordCreateActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".WordCreateActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -33,6 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TutorialActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.jica.butterbookdata;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
@@ -58,8 +59,10 @@ public class ViewActivity extends AppCompatActivity {
         if(tutorialviewshow != 1){
             readFileToDB = new ReadFileToDB(this);
             readFileToDB.start();
-            moveFragment(3);
-            Toast.makeText(this, "데이터를 내려받기 위해 첫실행에만 설정화면으로 이동합니다.", Toast.LENGTH_SHORT).show();
+            //moveFragment(3);
+            //Toast.makeText(this, "데이터를 내려받기 위해 첫실행에만 설정화면으로 이동합니다.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,TutorialActivity.class);
+            startActivity(intent);
         }
 
     }
