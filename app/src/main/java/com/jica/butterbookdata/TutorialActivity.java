@@ -74,9 +74,9 @@ public class TutorialActivity extends AppCompatActivity {
         animation4.setStartOffset(2000);
         animation5.setStartOffset(2500);
         animation6.setStartOffset(3000);
-        animation8.setStartOffset(3500);
-        animation9.setStartOffset(3500);
-        animation10.setStartOffset(4000);
+        animation8.setStartOffset(1500);
+        animation9.setStartOffset(1500);
+        animation10.setStartOffset(1500);
         tutorial1.startAnimation(animation1);
         tutorial2.startAnimation(animation2);
         tutorial3.startAnimation(animation3);
