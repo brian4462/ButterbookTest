@@ -100,7 +100,36 @@
             android:textColor="@color/colorAccent" />
 
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/internet_page_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="독일 관련 정보 유용한 사이트 모음"
+            android:textColor="@color/colorPrimaryDark" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/inquire_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="문의하기"
+            android:textColor="@color/colorPrimaryDark" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/setting_reset_study_layout"
         android:layout_width="match_parent"

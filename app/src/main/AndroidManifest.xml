@@ -12,11 +12,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ViewActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".WordClickViewActivity"
-            android:screenOrientation="portrait"
-             />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".QuizActivity"
             android:screenOrientation="portrait"
@@ -34,8 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TutorialActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".TutorialActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".InternetPagesActivity"></activity>
     </application>
 
 </manifest>

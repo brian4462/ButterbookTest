@@ -11,19 +11,17 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.IntentCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jica.butterbookdata.InternetPagesActivity;
 import com.jica.butterbookdata.R;
-import com.jica.butterbookdata.ViewActivity;
 import com.jica.butterbookdata.database.AppDB;
 import com.jica.butterbookdata.database.dao.AdjektivDAO;
 import com.jica.butterbookdata.database.dao.NomenDAO;
@@ -77,6 +75,24 @@ public class Page4_Settings extends Fragment {
         super.onDestroyView();
         if(unbinder!=null)
             unbinder.unbind();
+    }
+    @OnClick(R.id.inquire_layout)
+    public void onInquire(View view){
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.setType("plain/text");
+        // email setting 배열로 해놔서 복수 발송 가능
+        String[] address = {"brian4462@gmail.com"};
+        email.putExtra(Intent.EXTRA_EMAIL, address);
+        email.putExtra(Intent.EXTRA_SUBJECT,"[버터북 문의사항]제목");
+        email.putExtra(Intent.EXTRA_TEXT,"문자오타, 오류사항, 버그, 건의사항, 문의사항 등을 적어주세요!\n 버그나 오류사항의 경우 핸드폰 기종을 적어주시면 감사하겠습니다.");
+        startActivity(email);
+
+    }
+    @OnClick(R.id.internet_page_layout)
+    public void onGotoInternet(View view){
+        Intent intent = new Intent(getActivity(), InternetPagesActivity.class);
+        getActivity().startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.anim_slide_in_left,R.anim.anim_not_move_activity);
     }
     @OnClick(R.id.setting_reset_study_layout)
     public void onClearStudy(View view){
