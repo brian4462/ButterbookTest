@@ -84,7 +84,7 @@ public class Page4_Settings extends Fragment {
         String[] address = {"brian4462@gmail.com"};
         email.putExtra(Intent.EXTRA_EMAIL, address);
         email.putExtra(Intent.EXTRA_SUBJECT,"[버터북 문의사항]제목");
-        email.putExtra(Intent.EXTRA_TEXT,"문자오타, 오류사항, 버그, 건의사항, 문의사항 등을 적어주세요!\n 버그나 오류사항의 경우 핸드폰 기종을 적어주시면 감사하겠습니다.");
+        email.putExtra(Intent.EXTRA_TEXT,"오역, 문자오타, 오류사항, 버그, 건의사항, 문의사항 등을 적어주세요!\n 버그나 오류사항의 경우 핸드폰 기종을 적어주시면 감사하겠습니다.");
         startActivity(email);
 
     }
