@@ -1,3 +1,4 @@
+Artikel	Nomen	Plural	Bedeutung_KO	Bedeutung_EN	Beispiel	Beispiel_Bedeutung
 die	Telefonnummer	Telefonnummern	전화번호	phone number	Diese Telefonnummer kann man sich gut merken.	이 전화번호는 기억하기가 쉽다
 die	Anmeldung	Anmeldungen	등록,신고,등록 서류	registration,application, reception, login	Zeigen Sie Ihre Anmeldung dem Beamten.	직원에게 서류를 보여주세요.
 die	Adresse	Adressen	주소, 청원서	address	Diese Seite nur für Name und Adresse benutzen!	이 페이지에는 이름과 주소만 쓸 것!
@@ -331,3 +332,171 @@ der	Sommer	Sommer	여름	summer	Im Sommer baden wir im See.	여름에 우리는 
 der	Herbst	Herbste	가을	autumn, fall	Die Bäume verlieren ihre Blätter im Herbst.	나무들은 가을에 잎이 떨어진다.
 der	Winter	Winter	겨울	winter	Der Winter ist die kälteste Jahreszeit.	겨울은 가장 추운 계절이다.
 das	Wochenende	Wochenenden	주말	weekend	Die ganze Woche über freue ich mich auf das Wochenende.	일주일 내내 나는 주말을 기대했다.
+die	Nummer	Nummern	숫자, 번호	number	Gib mir mal deine Nummer	니 번호좀 알려줘.
+die	Spezialität	Spezialitäten	명물, 특색, 유명한 음식	specialty	Kuckucksuhren sind die Spezialität des Schwarzwaldes.	뻐꾹시계는 슈바르츠발트의 명물이다.
+die	Brille	Brillen	안경	glasses	Es ist nicht bekannt, wer die erste Brille herstellte.	누가 처음으로 안경을 만들 었는지는 알려져 있지 않습니다.
+die	Dauer	Dauern	기간, 오랜기간, 존속	duration, period, term	Die Dauer der Tests wird zwei Wochen nicht überschreiten.	테스트 기간은 2주가 안걸릴 것입니다.
+die	Ecke	Ecken	귀퉁이, 모서리, 가장자리, 각(수학)	corner	In einer Ecke des Wohnzimmers steht eine große Pflanze.	거실 한 구석에는 큰 식물이 있습니다.
+die	Demokratie	Demokratien	민주주의	democracy	Vor der Demokratie regierten Könige und Königinnen dieses Land.	민주주의 이전에는 왕과 왕비가 이 땅을 다스렸다.
+die	Kirche	Kirchen	교회, 예배	church	Jeden Sonntag findet in der Kirche ein Gottesdienst statt.	매주 일요일에 교회에서 예배가 있습니다.
+die	Freizeit	Freizeiten	휴가, 여가시간	leisure, free time, time off	in meiner Freizeit gehe ich viel spazieren	나는 여가 동안에 산책을 많이 한다.
+die	Führung	Führungen	인도, 안내	management, lead, guidance	Die erfahrensten Wanderer übernehmen normalerweise die Führung.	가장 경험이 많은 등산객이 주로 선두입니다.
+die	Gruppe	Gruppen	그룹, 조, 반	group, team	Unsere Gruppe gewann den ersten Preis.	우리 그룹이 1등상을 받았다.
+der	Schauspieler	Schauspieler	배우	actor, performer	Die Auswahl der Schauspieler für diesen Film war großartig.	이 영화의 출연배우들은 훌륭했다.
+der	Politiker	Politiker	정치인	politician	Ein ehrlicher Politiker würde seine Macht nie missbrauchen.	정직한 정치인은 결코 그의 권력을 남용하지 않을 것입니다.
+der	Meter	Meter	미터	meter	Distanz wird oft in Metern gemessen.	거리는 종종 미터단위로 측정됩니다.
+der	Spaß	Späße	농담, 재미, 장난	fun, laugh	Viel Spaß auf der Party!	파티에서 재밌게 놀아!
+der	Wald	Wälder	숲, 수풀, 밀집한 것	forest, wood	In diesem Wald gibt es viele verschiedene Bäume.	이 숲에는 다양한 종류의 나무들이 있다.
+der	Weinberg	Weinberge	포도원, 포도밭	vineyard	Trauben wachsen auf dem Weinberg.	포도는 포도밭에서 자란다.
+der	Besucher	Besucher	방문객, 손님, 참가자	visitor	Alle Besucher melden sich am Empfang an.	모든 방문객은 리셉션에 등록합니다.
+der	Baum	Bäume	나무, 수목	tree	Um das Haus stehen viele Bäume.	집 주변에는 많은 나무들이 있습니다.
+der	Dichter	Dichter	시인, 작가	poet, writer	Die Stadt baute ein Denkmal für den berühmten Dichter.	도시는 유명한 시인을 위한 기념비를 세웠습니다.
+der	Eintritt	Eintritte	입장, 개시	entrance, entry, admission	Für Kinder ist der Eintritt in das Museum kostenlos.	어린이들은 박물관 입장이 무료입니다.
+der	Anfang	Anfänge	처음, 시작	beginning	Am Anfang des Projekts hatten wir nur einen groben Plan.	프로젝트 초기에 우리는 대략적인 계획만 있었다.
+der	Fluss	Flüsse	강, 하천, 추이, 흐름	river, flow, stream	Ich bin durch den Fluss geschwommen.	나는 강을 가로질러 수영했다.
+der	Helm	Helme	투구, 헬멧, 원뿔형 지붕	helmet	Beim Motorradfahren muss man immer einen Helm tragen.	오토바이를 탈 때는 항상 헬멧을 착용해야합니다.
+der	Garten	Gärten	뜰, 정원	garden, yard	Hinter unserem Haus ist ein Garten.	우리 집 뒤에는 정원이 있습니다.
+das	Souvenir	Souvenirs	기념품	souvenir	Am letzten Tag unserer Reise kauften wir Souvenirs.	우리는 여행 마지막날에 기념품을 샀다.
+das	Ticket	Tickets	탑승권, 입장권	ticket	Hier kann man das Ticket entwerten.	여기에서 티켓을 확인할 수 있습니다.
+das	Symbol	Symbole	상징, 기호	symbol, icon	Das Symbol für Frieden ist eine weiße Taube.	평화의 상징은 흰색 비둘기입니다.
+das	Ende	Enden	끝, 결말, 첨단	end, ending	Die böse Hexe verliert am Ende.	사악한 마녀는 결국 죽는다.
+das	Ausland	-	외국	aboard	Wir wollen unsere Geschäftstätigkeit auf das Ausland ausweiten.	우리는 사업 활동을 해외로 확대하고자합니다.
+das	Geschenk	Geschenke	선물, 기부, 하사품	gift, present	Ich habe ein Geschenk für den Geburtstag meiner Schwester gekauft.	나는 여동생의 생일 선물을 샀다.
+die	Verspätung	Verspätungen	늦음, 지각	delay	Der Zug hat eine Stunde Verspätung.	기차가 한시간 늦었습니다.
+die	Abfahrt	Abfahrten	출발, 서거	departure	Ich habe die Fahrkarte kurz vor der Abfahrt gekauft.	나는 출발하기 직전에 티켓을 샀다.
+die	Ankunft	Ankünfte	도착, 탄생	arrival	Bei meiner Ankunft zeigte mir der Hotelmanager mein Zimmer.	내가 도착했을 때 호텔매니저가 내 방을 보여줬다.
+die	Durchsage	Durchsagen	전달, 보도	announcement	Die Durchsage machte mich darauf aufmerksam, dass der Zug Verspätung hatte.	그 방송은 나에게 기차가 늦었다는 것을 알려주었다.
+die	Fahrkarte	Fahrkarten	승차권, 차표	ticket	Wir haben unsere Fahrkarten am Schalter gekauft.	우리는 차표를 개찰구에서 샀다.
+der	Bahnsteig	Bahnsteige	플랫폼	platform	Mein Zug wird in Kürze vom Bahnsteig abfahren.	기차는 곧 플랫폼을 떠날 것입니다.
+der	Bahnhof	Bahnhöfe	정거장, 기차역	station	Am nächsten Bahnhof muss ich aus dem Zug aussteigen.	다음 기차역에서 나는 내려야 한다.
+der	Hauptbahnhof	Hauptbahnhöfe	중앙역	central station	Der Zug kommt um 16.00 Uhr am Hauptbahnhof an.	기차는 16시에 중앙역에 도착합니다.
+die	Metzgerei	Metzgereien	정육점	butcher shop	Fleisch und Wurst kauft man am besten in der Metzgerei.	고기와 소시지는 정육점에서 가장 잘 팔립니다.
+die	Bank	banken	은행	bank	Ich ging zur Bank, um ein Depot zu eröffnen.	나는 예금을 열기위해 은행에 갔었다.
+die	Bücherei	Büchereien	(소규모의) 도서관	library, bookstore	Krankenhäuser, Schulen und Büchereien sind öffentliche Einrichtungen.	병원, 학교 및 도서관은 공공 기관입니다.
+die	Kneipe	Kneipen	술집, 음식점	pub, bar	Wir treffen uns in der Kneipe und trinken Bier.	우리는 술집에서 만나고 맥주를 마신다.
+die	Halle	Hallen	홀, 로비, 회관	hall, lobby	Die Veranstaltung findet in der großen Halle im ersten Stock statt.	그 행사는 1층의 대형 홀에서 진행됩니다.
+der	Stadtteil	Stadtteile	(도시의) 구역, 지역	district	Ich wohne in einem sehr ruhigen Stadtteil von Amsterdam.	나는 암스테르담의 아주 조용한 지역에 살고 있습니다.
+der	Wolkenkratzer	die Wolkenkratzer	마천루, 고층 건물	skyscraper	Die Stadt ist für ihre Wolkenkratzer berühmt.	이 도시는 고층 건물로 유명하다.
+der	Treffpunkt	Treffpunkte	집합 장소, 약속 장소	meeting place, venue	Das Einkaufszentrum ist ein beliebter Treffpunkt für junge Menschen.	쇼핑 센터는 젊은 사람들에게 인기있는 만남의 장소입니다.
+der	Zoo	Zoos	동물원	zoo	Zoos versuchen, einige Arten durch Fortpflanzung in Gefangenschaft zu retten.	동물원은 번식을 통해 종을 늘리려 노력하고 있습니다.
+der	Buchladen	Buchläden	책방, 서점	bookshop	Auf der einen Seite der Straße ist eine ununterbrochene Reihe von Buchläden.	그 거리의 한쪽은 책방이 쭉 늘어서있다.
+der	Blumenladen	Blumenläden	꽃집	flower shop	Sehen Sie, was ich aus dem Blumenladen mitgebracht habe.	이거봐, 내가 꽃집에서 뭘 가져왔는지.
+der	Bus	Busse	버스	bus	Der Bus fährt jede Stunde.	버스는 1시간마다 출발합니다.
+das	Oktoberfest	Oktoberfeste	10월제, 뮌헨 10월 대축제	Oktoberfest, Munich beer festival	Am Wochenende besuchen sehr viele Menschen das Oktoberfest.	주말에는 많은 사람들이 옥토버 페스트를 방문합니다.
+das	Rathaus	Rathäuser	시청, 시청 청사	city hall, town hall	Das Rathaus und die Kirche können Sie im Zentrum der Stadt finden.	도시 중심부에 시청과 교회가 있습니다.
+die	Schlange	Schlangen	뱀, 긴 행렬, 간사한 사람	snake, line	Viele Schlangen sind giftig, aber nicht alle.	많은 뱀들이 독성이지만 전부는 아니다.
+die	Giraffe	Giraffen	기린	giraffe	Ich sah eine Giraffe im Zoo.	나는 동물원에서 기린을 봤다.
+der	Löwe	Löwen	사자, 용맹한 사람	lion	Der Löwe ist ein Symbol der Macht.	사자는 권력의 상징입니다.
+der	Affe	Affen	원숭이	monkey	Der wendige kleine Affe kletterte mühelos den Baum hinauf.	민첩한 작은 원숭이가 자연스럽게 나무 위로 올라갔습니다.
+der	Bär	Bären	곰	bear	Wölfe und Bären leben in der Wildnis.	늑대와 곰은 야생에서 산다.
+der	Elefant	Elefanten	코끼리	elephant	bitte, zeichne mir mal einen Elefanten vor!	코끼리 한 마리 좀 그려줘!
+das	Tier	Tiere	동물, 짐승	animal	Mein kleiner Bruder will in den Zoo gehen, um sich Tiere anzuschauen.	내 동생은 동물을 구경하기 위해 동물원에 가고 싶어 한다.
+die	Pfeife	Pfeifen	휘슬, 피리, 휘파람	pipe, whistle	Unser Trainer trägt eine Pfeife um seinen Hals.	우리의 코치는 목에 호루라기를 착용한다.
+die	Regel	Regeln	상례, 규칙, 규율	rule	Jedes Spiel hat seine eigenen Regeln.	모든 게임에는 규칙이 있습니다.
+die	Rose	Rosen	장미, 장미 무늬	rose	Die Rose ist die Königin der Blumen.	장미는 꽃의 여왕이다.
+die	Zeit	Zeiten	시간, 기간	time, period, era	Ich verbringe viel Zeit draußen.	나는 밖에서 많은 시간을 보낸다.
+die	Technik	Techniken	공학, 기술, 설비	technology, technique	Das neueste Modell kombiniert innovative Technik und Retrodesign.	혁신적인 기술과 복고풍 디자인을 결합한 최신 모델입니다.
+die	Tabelle	Tabellen	표, 리스트	table, chart	In der Tabelle sind alle Produkte und deren Preise aufgelistet.	이 표에는 모든 제품과 가격이 나와 있습니다.
+die	Welt	Welten	세상, 세상 사람들	world	Idealisten wollen die Welt verändern.	이상 주의자들은 세상을 바꾸고 싶어합니다.
+die	Angst	Ängste	공포, 불안, 무서움	fear, anxiety	Seine Angst vor Arbeitslosigkeit ist völlig unbegründet.	실업에 대한 그의 두려움은 완전히 근거가 없다.
+die	Erkältung	Erkältungen	감기	cold, chill	Ich habe mir in der Schule eine Erkältung eingefangen.	나는 학교에서 감기에 걸렸다.
+die	Kopie	Kopien	사본, 복사, 복사판	copy, replica, duplicate	Sie hat eine Kopie eines berühmten Gemäldes in ihrem Wohnzimmer.	그녀는 거실에 유명한 그림의 사본을 가지고 있습니다.
+die	Hausarbeit	Hausarbeiten	가사일, 숙제	housework, homework	Ich erledige den Hauptanteil der Hausarbeit.	나는 대부분의 집안일을 한다.
+die	Geburt	Geburten	분만, 출산, 탄생	birth	Er ist von Geburt ein Engländer	그는 영국 태생이다.
+die	Idee	Ideen	이념, 아이디어, 생각	idea, concept	Es war eine tolle Idee, zu der Party zu gehen.	파티에가는 것은 좋은 생각이었다.
+die	Handtasche	Handtaschen	(여성용)손가방, 핸드백	handbag	Meine Schwester hat eine gefälschte Handtasche gekauft.	내 동생이 짝퉁 핸드백을 사왔다.
+die	Hausangestellte	Hausangestellten	가정부, 하녀	domestic	In Königshäusern ist es üblich, Hausangestellte zu beschäftigen.	왕실에서는 하녀를 고용하는 것이 일반적입니다.
+die	Geldbörse	Geldbörsen	지갑, 돈주머니	purse, wallet	Ich legte meine Geldbörse auf den Tisch.	나는 지갑을 테이블 위에 뒀다.
+die	Halskette	Halsketten	목걸이, 목줄	necklace	Sie trug eine goldene Halskette.	그녀는 금 목걸이를 착용했다.
+die	Kosmetik	Kosmetika	미용, 화장	cosmetic	Sie zwackte vom Haushaltsgeld zehn Mark für Kosmetik ab.	그녀는 가계비에서 미용을 위해 10마르크를 덜어냈다
+der	Gutschein	Gutscheine	쿠폰, 교환권	voucher, coupon	Der Gutschein verfällt nächsten Montag.	쿠포은 다음주 월요일에 만료됩니다.
+der	Moment	Momente	순간, 찰나, 시점	moment, point	Einen Moment.	잠시만요.
+der	Ort	Orte	장소, 지역, 지점	place, location, spot	Wir haben einige sehr schöne Orte besucht.	우리는 매우 멋진 장소를 방문했습니다.
+der	Regenschirm	Regenschirme	우산	umbrella	Ich nehme einen Regenschirm mit, falls es regnet.	비가 올 경우 나는 우산을 가져갈 것이다.
+der	Schmuck	Schmucke	장신구, 장식품, 보석류	jewelry	Das Geschäft verkauft Uhren und Schmuck.	이 가게는 장신구와 시계를 판매한다.
+der	Maler	Maler	화가	painter, artist	Der Maler bat mich, für ein Bild Modell zu stehen.	화가는 나에게 그림의 모델이 되어달라고 부탁했다.
+der	Ring	Ringe	반지, 고리, 원	ring	Der Ring ist aus echtem Gold.	이 반지는 순금으로 만들어졌다.
+der	Ohrring	Ohrringe	귀고리	earring	Sabine trägt zwei Ohrringe im linken Ohrläppchen.	Sabine는 왼쪽 귓볼에 두 개의 귀걸이를 착용한다.
+der	Terminkalender	Terminkalender	일정 수첩	diary, appointment calendar	Ich muss den Termin in meinen Terminkalender eintragen.	내 수첩에 일정을 적어야한다.
+der	Experte	Experten	전문가	expert	Experten bewerteten die Qualität der Produkte.	전문가가 제품의 품질을 평가했다.
+der	Ehering	Eheringe	결혼반지	wedding ring	Meine Großmutter trägt ihren Ehering an einer goldenen Kette.	할머니는 그녀의 결혼 반지를 금목걸이에 착용합니다.
+der	Applaus	Applause	박수 갈채	applause	Die Zuschauer knauserten nicht mit Applaus nach der Show.	관객들은 쇼가 끝난 후 박수를 아끼지 않았다.
+der	Gang	Gänge	보행, 걸음걸이	course, speed	Das hat seinen guten Gang.	그것은 순조롭게 진행되고 있다.
+der	Hut	Hüte	(테가 있는) 모자	hat, cap	Er trägt einen Hut auf seinem Kopf.	그는 모자를 쓰고있다.
+der	Fotoapparat	Fotoapparate	사진기	camera	Dieser Fotoapparat macht großartige Bilder.	이 카메라는 훌륭한 사진을 찍습니다.
+der	Handschuh	Handschuhe	장갑	glove	Ich trage im Winter immer eine Mütze und Handschuhe.	나는 항상 겨울에 모자와 장갑을 착용한다.
+der	Fotograf	Fotografen	사진사	photographer	Der Fotograf war in ein neues Studio umgezogen.	사진작가는 새로운 스튜디오로 옮겼습니다.
+das	Paket	Pakete	꾸러미, 소포, 상자	package, packet	Er holte sein Paket beim Postamt ab.	그는 우체국에서 소포를 가져왔다.
+das	Mädchen	Mädchen	소녀, 여자아이	girl	Meine Tochter versprach, ein braves Mädchen zu sein.	내 딸은 착한 소녀가 되겠다고 약속했다.
+das	Volk	Völker	민족, 국민, 떼	people, nation	Nein danke, mit so einem Volk will ich nichts zu tun haben.	괜찮습니다. 저는 그런 사람들과 아무 관계가 없기를 바랍니다.
+das	Ding	Dinge	물건, 사물, 사건. 일	thing, item	Die wertvollsten Dinge, die ich besitze, sind in meinem Safe.	내가 가진 것중 제일 소중한 물건들은 내 금고에 있다.
+das	Angebot	Angebote	제시, 제안, 공급	offer, supply	Ich habe das gute Angebot schnell angenommen.	나는 좋은 제안을 빨리 받아 들였다.
+das	Datum	Daten	날짜, 데이터	date	Der Lehrer hat das Datum für die Prüfung festgelegt.	선생님은 시험 날짜를 정했습니다.
+das	Essen	Essen	식사, 음식, 요리	food, meal	Das Essen im Hotel ist sehr gut.	이 호텔의 음식은 매우 맛있다.
+das	Feuerzeug	Feuerzeuge	라이터	lighter	Ich habe Kerzen gekauft, aber das Feuerzeug vergessen.	나는 양초를 샀지만, 라이터를 잊어버렸다.
+das	Handy	Handys	휴대폰	mobile phone	Ich nahm mein Handy heraus und rief meine Mutter an.	나는 휴대폰을 꺼내 엄마에게 전화를 했다.
+das	Glück	-	행운, 운수, 행복	happiness, luck, fortune	Er wünschte ihr viel Glück.	그는 그녀의 행운을 빌었다.
+das	Foto	Fotos	사진	photo, picture	Ich lächelte auf dem Foto.	나는 사진속에서 웃고 있었다.
+die	Trauung	Trauungen	결혼, 혼례	wedding, marriage	Unsere kirchliche Trauung findet am kommenden Samstag statt.	우리의 교회 결혼식은 다음 주 토요일에 열릴 것입니다.
+die	Einladung	Einladungen	초대, 적재	invitation	Wir verschickten die Einladungen vier Monate vor der Hochzeit.	결혼식 4개월 전에 초대장을 보냈습니다.
+die	Braut	Bräute	약혼녀, 아가씨	bride	Die Braut trug ein wunderschönes Hochzeitskleid.	신부는 아름다운 웨딩 드레스를 입고있었습니다.
+die	Hochzeit	Hochzeiten	결혼식, 혼례	wedding, marriage	Der Bräutigam ist vor der Hochzeit verschwunden.	신랑은 결혼식 전에 사라졌다.
+die	Feier	Feiern	휴업, 축제	celebration, party	Alles ist fertig für die große Feier.	큰 축제를 위한 준비가 모두 끝났다.
+der	Bräutigam	Bräutigame	신랑	groom	Der Bräutigam heiratet die Braut.	신랑은 신부와 결혼한다.
+der	Gast	Gäste	손님, 고객	guest, customer, visitor	Ich lud viele Gäste zu meiner Geburtstagsfeier ein.	나는 많은 손님들을 내 생일 파티에 초대했다.
+die	Mannschaft	Mannschaften	팀, 선수단, 직원	team, crew	Ich wette, dass meine Mannschaft das Spiel gewinnt.	우리 팀이 게임에서 이길거야.
+die	Verlängerung	Verlängerungen	연장, 연장전	extension, renewal	Mein Manager wird eine Verlängerung meines Vertrags gewähren.	관리자가 나의 계약을 연장해줬다.
+der	Schiedsrichter	Schiedsrichter	심판, 중재자	referee, arbitrator	Ein Schiedsrichter darf nie einer Mannschaft gegenüber parteiisch sein.	심판은 절대로 한팀에 편향되어선 안된다.
+der	Pokal	Pokale	트로피	cup, trophy	Der Sieger hob den Pokal hoch in die Luft.	우승자는 높이 우승컵을 들어 올렸다.
+der	Zuschauer	Zuschauer	구경꾼, 관객, 시청자	spectator, viewer	Sehr viele Zuschauer kamen, um sich die Vorführung anzusehen.	많은 관중들이 쇼를 보러 왔습니다.
+der	Sprung	Sprünge	뜀, 도약, 점프, 균열	leap, jump, plunge, crack	Die Katze machte einen Sprung über den Zaun.	고양이가 울타리 위로 뛰어 올랐다.
+der	Torwart	Torwarte	골키퍼	goalkeeper	Der Torwart konnte den Ball nicht festhalten.	골키퍼가 공을 막을 수 없었다.
+der	Ball	Bälle	공, 공모양의 것	ball	Mein Hund spielt gern mit dem gelben Ball.	우리 강아지는 노란 공을 가지고 노는 걸 좋아한다.
+das	Publikum	Publika	관객, 청중, 독자	public, audience, crowd	Ich habe noch nie vor einem Publikum gesungen.	나는 관객 앞에서 결코 노래하지 않는다.
+das	Tor	Tore	문, 출입구, 골	door, gate	Der neue Spieler erzielte zwei Tore.	새로운 선수는 2골을 넣었다.
+die	Statistik	Statistiken	통계학, 통계	statistic	Diese Statistik wird wöchentlich aktualisiert.	이 통계는 매주 업데이트됩니다.
+die	Apotheke	Apotheken	약국	pharmacy	Ich holte mein Medikament von der Apotheke ab.	나는 약국에서 약을 가져갔습니다.
+die	Größe	Größen	크기, 거대	size, height	Die Schuhe sind nach Größe geordnet.	신발들은 사이즈에 맞춰 진열됩니다.
+die	Gymnastik	-	체육, 체조	gymnastics	Ich bin zu ungeschickt für Gymnastik.	나는 체육이랑 안맞아.
+der	Parkplatz	Parkplätze	주차장	parking lot	Ich fuhr weiter, bis ich einen passenden Parkplatz fand.	나는 적당한 주차공간을 찾을 때까지 운전을 계속했다.
+der	Mitschüler	Mitschüler	동급생	classmate	Meine neuen Mitschüler wirken sehr freundlich.	새로운 동급생들은 매우 친절하다.
+der	Witz	Witze	기지, 장난, 지혜	wit, joke	Er ist so eine lustige Person, er erzählt immer Witze.	그는 재밌는 사람이고 항상 농담을 한다.
+der	Abflug	Abflüge	이륙, 떠나감	departure	Der Abflug des Flugzeugs wurde durch ein technisches Problem verzögert.	항공기의 이륙은 기술적 문제때문에 지연되었습니다.
+der	Besuch	Besuche	방문	visit	Meine Freundin hat mir gesagt, dass sie heute Nachmittag auf einen Besuch vorbeikommen würde.	내 여자 친구는 오늘 오후에 그녀가 방문 할 것이라고 말했다.
+der	Flügel	Flügel	날개	wing, blade	Flügel sind Bauteile eines Flugzeugs.	날개는 비행기의 구성 요소입니다.
+das	Problem	Probleme	문제, 과제	problem, trouble	Ich habe eine Lösung für unser Problem.	나는 우리의 문제에 대한 해결책을 가지고 있다.
+das	Gewicht	Gewichte	무게, 체중	weight	Ich stellte meinen Koffer auf die Waage, um sein Gewicht zu prüfen.	나는 무게를 확인하기 위해 저울에 가방을 올렸다.
+die	Praxis	Praxen	실행, 실습, 경험	practice	Das ist zwar eine gute Idee, aber in der Praxis ist es nicht machbar.	좋은 생각이지만, 실전에서는 실현 가능하지 않습니다.
+die	Salbe	Salben	연고, 고약	ointment	Der Arzt verschrieb eine antibiotische Salbe für meine Wunde.	의사는 내 상처에 대해 항생제 연고를 처방했다.
+die	Tablette	Tabletten	알약	tablet, pill	Ich muss zwei Tabletten pro Tag nehmen, bis es mir besser geht.	나는 상태가 좋아질때까지 하루에 두 알의 알약을 복용해야 한다.
+der	Patient	Patienten	병자, 환자	patient	Der Patient, der wieder gesund ist, darf heute nach Hause gehen.	다시 건강이 좋아진 환자는 오늘 퇴원이 가능합니다.
+der	Termin	Termine	기한, 예정일, 약속	date, appointment	Der Arzt gab mir einen Termin für Donnerstag.	의사는 목요일에 약속을 잡아주었다.
+der	Doktor	Doktoren	의사	doctor	Der Doktor hat gesagt, dass ich zuhause bleiben und mich ausruhen soll.	의사는 내가 집에서 휴식을 취해야 한다고 말했다.
+das	Rezept	Rezepte	요리법, 처방	recipe, prescription	Der Arzt gab mir ein Rezept für die Medikamente.	의사가 약을 처방해주었다.
+das	Medikament	Medikamente	약, 약품	drug, medicine, medication	Das Medikament wird als Injektion verabreicht.	처방은 주사로 놓아줍니다.
+die	Schulter	Schultern	어깨	shoulder	Ein Papagei saß auf seiner Schulter.	앵무새가 그의 어깨에 앉았다.
+die	Brust	Brüste	가슴, 유방	chest, bust	Er hat ständig Schmerzen in der Brust.	그는 항상 가슴에 통증이 있습니다.
+die	Hüfte	Hüften	허리, 엉덩이	hip	Das Model legt die Hände auf die Hüften und posiert.	모델은 엉덩이쪽에 손을 올리고 포즈를 취한다.
+der	Po	Pos	엉덩이, 둔부	buttocks, butt	Ich trainiere, damit mein Po kleiner wird.	나는 내 엉덩이가 작아지도록 운동했다.
+der	Rücken	Rücken	등	back	Ich liege auf dem Rücken und schaue den Wolken zu.	나는 등을 대고 누워서 구름을 보았다.
+der	Zeh	Zehen	발가락	toe	Ich habe eine kleine Blase an meinem Zeh.	나는 발끝에 약간의 거품이있다.
+der	Busen	Busen	요부, 가슴	bosom, bust	Das Kleid betonte den Busen der Dame.	그 의상은 여자의 가슴을 강조했다.
+der	Daumen	Daumen	엄지손가락	thumb	Das Baby saugte an seinem Daumen.	아기는 그의 엄지손가락을 빨았다.
+der	Bauch	Bäuche	배, 위	stomach	Du hast dir einen Bauch angefressen.	너는 너무 많이 먹어 배가 나왔다.
+der	Finger	Finger	손가락	finger, digit	Die Frau trug Ringe an allen ihren Fingern.	여자는 모든 손가락에 반지를 끼웠다.
+der	Hals	Hälse	목	neck, throat	Die Frau trug einen roten Schal aus Seide um ihren Hals.	여자는 목에 빨간 실크 스카프를 둘렀다.
+der	Körper	Körper	몸, 신체	body	Das Herz pumpt Blut durch den Körper.	심장은 몸을 통해 혈액을 공급한다.
+der	Kopf	Köpfe	머리	head, mind	Der Hut ist zu groß für meinen Kopf.	이 모자는 나한테는 크다.
+das	Gesicht	Gesichter	얼굴, 인상, 용모	face	So viele neue Gesichter!	새로운 얼굴들이 많네!
+das	Knie	Knie	무릎	knee	Er hat sich das Knie verschrammt.	그는 무릎에 생채기를 냈다.
+die	Allergie	Allergien	알레르기	allergy	Manche Allergien können einen Hautausschlag auslösen.	일부 알레르기는 발진을 유발할 수 있습니다.
+die	Grippe	Grippen	독감, 유행성 감기	flu, influenza	Ich bekam die Grippe und musste eine Woche im Bett bleiben.	나는 독감에 걸려서 일주일 동안 집에 있어야했다.
+die	Krankheit	Krankheiten	병, 질병	illness, disease	Meine Krankheit ist nicht ansteckend.	내 병은 전염성이 없습니다.
+der	Schnupfen	Schnupfen	코감기	cold	Ich werde den Schnupfen nicht los.	나는 감기가 낫질 않고 있다.
+der	Schmerz	Schmerzen	아픔, 고통	pain, ache	Ich habe diesen Schmerz in meiner Schulter seit drei Tagen.	나는 3일동안 어깨 통증이 있다.
+der	Durchfall	Durchfälle	설사, 추락	diarrhoea	Ich vermeide bestimmte Lebensmittel, weil sie bei mir Durchfall verursachen.	나는 설사를 일으킬 수도 있기 때문에 특정 음식은 피한다.
+der	Krebs	Krebse	갑각류, 게, 암	cancer, crab	Krebs ist eine schreckliche Krankheit.	암은 지독한 질병이다.
+der	Husten	Husten	기침	cough	Der Kind hustete schwach die ganze Nacht.	아이는 밤새 잔기침을 했다.
+das	Krankenhaus	Krankenhäuser	병원	hospital	Muß ich im Krankenhaus bleiben?	입원해야 하나요?
+das	Fieber	Fieber	흥분, 열	fever	Ich ging zum Arzt, weil ich Fieber hatte.	나는 열이 있어서 병원에 갔다.
+die	Party	Partys	파티	party	Er wollte mich zur Party mitschleifen.	그는 나를 파티에 데려가려고 했다.

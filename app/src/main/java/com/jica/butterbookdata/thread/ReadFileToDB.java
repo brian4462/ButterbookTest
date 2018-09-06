@@ -2,6 +2,7 @@ package com.jica.butterbookdata.thread;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.jica.butterbookdata.database.AppDB;
 import com.jica.butterbookdata.database.dao.AdjektivDAO;
@@ -37,20 +38,23 @@ public class ReadFileToDB extends Thread {
     }
 
     private void setDB() {
+        wordDAO = AppDB.getInstance(mActivity).wordDAO();
         //nomen
         nomenDAO = AppDB.getInstance(mActivity).nomenDAO();
+        List<Word> wordList = new ArrayList<>();
+        List<Nomen> nomenList = new ArrayList<>();
+        List<Verben> verbenList = new ArrayList<>();
+        List<Adjektiv> adjektivList = new ArrayList<>();
         try {
             InputStreamReader is = new InputStreamReader(mActivity.getAssets().open("Nomen.tsv"));
             BufferedReader reader = new BufferedReader(is);
             reader.readLine();
             String line;
             String[] st;
-            int nid = 1;
 
             while ((line = reader.readLine()) != null) {
                 st = line.split("\t");
                 Nomen nomen = new Nomen();
-                nomen.setNid(nid);
                 nomen.setArtikel(st[0]);
                 nomen.setNomen(st[1]);
                 nomen.setPlural(st[2]);
@@ -58,8 +62,11 @@ public class ReadFileToDB extends Thread {
                 nomen.setMean_en(st[4]);
                 nomen.setExample(st[5]);
                 nomen.setExample_mean(st[6]);
-                nomenDAO.insert(nomen);
-                nid++;
+                if(nomenDAO.get(nomen.getNomen())==null){
+                    nomenDAO.insert(nomen);
+                    nomen = nomenDAO.get(nomen.getNomen());
+                    nomenList.add(nomen);
+                }
             }
         } catch (IOException e) { }
         //verben
@@ -70,12 +77,10 @@ public class ReadFileToDB extends Thread {
             reader.readLine();
             String line;
             String[] st;
-            int vid = 1;
 
             while ((line = reader.readLine()) != null) {
                 st = line.split("\t");
                 Verben verben = new Verben();
-                verben.setVid(vid);
                 verben.setVerb_wir(st[0]);
                 verben.setVerb_ich(st[1]);
                 verben.setVerb_du(st[2]);
@@ -89,8 +94,11 @@ public class ReadFileToDB extends Thread {
                 verben.setMean_en(st[10]);
                 verben.setExample(st[11]);
                 verben.setExample_mean(st[12]);
-                verbenDAO.insert(verben);
-                vid++;
+                if(verbenDAO.get(verben.getVerb_wir())==null){
+                    verbenDAO.insert(verben);
+                    verben = verbenDAO.get(verben.getVerb_wir());
+                    verbenList.add(verben);
+                }
             }
         } catch (IOException e) { }
         //adjektiv
@@ -101,25 +109,24 @@ public class ReadFileToDB extends Thread {
             reader.readLine();
             String line;
             String[] st;
-            int aid = 1;
 
             while ((line = reader.readLine()) != null) {
                 st = line.split("\t");
                 Adjektiv adjektiv = new Adjektiv();
-                adjektiv.setAid(aid);
                 adjektiv.setWord_adjektiv(st[0]);
                 adjektiv.setMean_ko(st[1]);
                 adjektiv.setMean_en(st[2]);
                 adjektiv.setExample(st[3]);
                 adjektiv.setExample_mean(st[4]);
-                adjektivDAO.insert(adjektiv);
-                aid++;
+                if(adjektivDAO.get(adjektiv.getWord_adjektiv())==null){
+                    adjektivDAO.insert(adjektiv);
+                    adjektiv = adjektivDAO.get(adjektiv.getWord_adjektiv());
+                    adjektivList.add(adjektiv);
+                }
             }
         } catch (IOException e) { }
         //insert word
-        wordDAO = AppDB.getInstance(mActivity).wordDAO();
-        List<Word> wordList = new ArrayList<>();
-        List<Nomen> nomenList = nomenDAO.getAll();
+
         for(Nomen value : nomenList){
             Word word = new Word();
             word.setWord(value.getArtikel()+ " " +value.getNomen());
@@ -128,7 +135,7 @@ public class ReadFileToDB extends Thread {
             word.setCategory_id(value.getNid());
             wordList.add(word);
         }
-        List<Verben> verbenList = verbenDAO.getAll();
+
         for(Verben value : verbenList){
             Word word = new Word();
             word.setWord(value.getVerb_wir());
@@ -137,7 +144,7 @@ public class ReadFileToDB extends Thread {
             word.setCategory_id(value.getVid());
             wordList.add(word);
         }
-        List<Adjektiv> adjektivList = adjektivDAO.getAll();
+
         for(Adjektiv value : adjektivList){
             Word word = new Word();
             word.setWord(value.getWord_adjektiv());
@@ -146,6 +153,7 @@ public class ReadFileToDB extends Thread {
             word.setCategory_id(value.getAid());
             wordList.add(word);
         }
+
         wordDAO.insert(wordList);
     }
 }

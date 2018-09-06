@@ -56,11 +56,8 @@ public class ViewActivity extends AppCompatActivity {
         //파일을 db에 저장(한번만 실행)
         SharedPreferences preferences = getSharedPreferences("myPref",0);
         int tutorialviewshow = preferences.getInt("CreateDB",0);
+
         if(tutorialviewshow != 1){
-            readFileToDB = new ReadFileToDB(this);
-            readFileToDB.start();
-            //moveFragment(3);
-            //Toast.makeText(this, "데이터를 내려받기 위해 첫실행에만 설정화면으로 이동합니다.", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this,TutorialActivity.class);
             startActivity(intent);
         }
